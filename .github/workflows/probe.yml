@@ -1,0 +1,11 @@
+name: probe
+on: [push, pull_request]
+permissions: {}
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: say which event ran
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: echo "probe ran for event=$EVENT_NAME ref=$GITHUB_REF"
